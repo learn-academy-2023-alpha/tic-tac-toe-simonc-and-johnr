@@ -1,11 +1,12 @@
 import React from 'react'
+import {useState} from 'react'
 
-const Square = ({ value }) => {
-  const whenClick = () => {
-    alert("hey")
+const Square = ({value, index, handleClick}) => {
+  const onSquareClick = () => {
+    handleClick(index)
   }
   return (
-    <button className="square" onClick={whenClick
+    <button className="square" onClick={onSquareClick
     }>{value}</button>
   )
 }

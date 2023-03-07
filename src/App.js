@@ -2,38 +2,36 @@ import React, { useState } from 'react'
 import Square from './components/Square'
 import './App.css'
 
-// const ticTacToeLogic = (iDontKnowWhatGoesHere) => {
-//   const pattern = "❌⭕️";
-//   let response = "";
-//   for (let i = 0; i < inputValue.length; i++) {
-//     response += pattern.charAt(i % pattern.length);
-//   }
-//   return response;
-// };
 
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
-  
+  const [player, setPlayer] = useState(true)
+  const handleClick = (index) => {
+   let updatedSquares = [...squares]
+    if (updatedSquares[index]===null && player) {
+      updatedSquares[index] = "x"
+    } else if (updatedSquares[index]===null && !player ){
+      updatedSquares[index] = "o"
+    }
+    setSquares(updatedSquares)
+    setPlayer(!player)
+  }
+
   return (
     <>
       <h1>Tic Tac Toe</h1>
       <div className="gameboard">
-            <Square />
-            <Square />
-            <Square />
-      </div>
-      <div className="gameboard"> 
-            <Square />
-            <Square />
-            <Square />
-      </div>
-      <div className="gameboard"> 
-            <Square />
-            <Square />
-            <Square />
-      </div>
-          
-                
+        {squares.map((value, index) => {
+          return (
+            <Square
+              value={value} 
+              key={index}
+              index={index}
+              handleClick={handleClick} 
+            />
+          )
+        })}
+        </div>
     </>
   )
 }
