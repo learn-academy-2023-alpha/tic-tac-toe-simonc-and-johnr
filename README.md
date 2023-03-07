@@ -10,7 +10,9 @@ When creating a project it is important to think about organization of your code
 -Branch: grid
 -Create 3x3 boxes using CSS
 
-- As a user, I can click on a square to mark it.
+✅- As a user, I can click on a square to mark it.
+    -Branch: squares-marked
+    -Create onClick={whenClick}
 
 - As a user, my partner can click on a square after me and see their mark.
 - As a user, I can't click on a square that has already been marked.
