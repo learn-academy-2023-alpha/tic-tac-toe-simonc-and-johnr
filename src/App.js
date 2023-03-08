@@ -12,7 +12,11 @@ const App = () => {
       updatedSquares[index] = "x"
     } else if (updatedSquares[index]===null && !player ){
       updatedSquares[index] = "o"
+    } else if (squares[index] !== null) {
+       alert("please pick another square.")
+       player = !player
     }
+
     setSquares(updatedSquares)
     setPlayer(!player)
   }
